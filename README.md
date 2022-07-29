@@ -8,7 +8,7 @@ This solver uses backtracking approach to solve the puzzle.
 
 Validity module has the required validity checker functions which check if the inputted grid is valid or not.
 
-Gridops module has many grid operation functions like InputGrid, PrintGrid which as the name suggest take input of a grind and print a grid respectively.
+Gridops module has many grid operation functions like InputGrid, PrintGrid which as the name suggests take input of a grind and print a grid respectively.
 
 Gridops module also has many functions like rowCheck, colCheck, boxCheck, BlankBoxFinder etc. which help the recursive function in solving the grid.
 
