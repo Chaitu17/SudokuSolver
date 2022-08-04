@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"sudoku/validity"
 	"sudoku/gridops"
+	"io/ioutil"
+	"strings"
 )
 
 // sudokuSolver: Recursive function which gives us the solution of the puzzle.
@@ -46,9 +48,40 @@ func errorHandler(grid [][]int, count int) {
 }
 
 func main() {
-	// Initializing the input grid using slices.
-	grid, count := gridops.InputGrid()
+	// Taking the input from a text file.
+	data,_ := ioutil.ReadFile("test.txt")
 
-	// Minimum no of clues required to solve the puzzle is 17.
-	errorHandler(grid, count)
+	// Taking the test cases into an array
+	// Splitting the data when we encounter a new line.
+	tests := strings.Split(string(data), "\n")
+	for i:=0; i<len(tests); i++ {
+		// Initializing a 9 X 9 grid using slices 
+		grid := make([][]int, 9)
+		for i:=0; i<9; i++ {
+			grid[i] = make([]int, 9)
+		}
+
+		// Parsing the string input into a 9 X 9 integer grid.
+		count := 0
+		nums := string(tests[i])
+		for i:=0; i<len(nums); i++ {
+			num := int(nums[i]) - 48
+			grid[i/9][i - 9*(i/9)] = num
+			if num != 0 {
+			// Storing the count of non-zero values
+				count++
+			}
+		}
+
+		// Prints the inputted grid from the test.txt file.
+		fmt.Println("This is the input grid:\n")
+		gridops.PrintGrid(grid)
+
+		// // Initializing the input grid using slices using the InputGrid function.
+		// grid, count := gridops.InputGrid()
+
+		// Minimum no of clues required to solve the puzzle is 17.
+		errorHandler(grid, count)
+		fmt.Println("")
+	}	
 }
