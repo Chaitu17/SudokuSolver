@@ -13,3 +13,5 @@ Gridops module has many grid operation functions like InputGrid, PrintGrid which
 Gridops module also has many functions like rowCheck, colCheck, boxCheck, BlankBoxFinder etc. which help the recursive function in solving the grid.
 
 Any optimisations and improvisations are welcomed.
+
+New Update: We should give the testcases in "test.txt" file. Please check it in the repository for reference.
